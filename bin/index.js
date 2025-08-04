@@ -24,7 +24,7 @@ const argv = yargs(hideBin(process.argv))
     describe: "CSV output file name",
   })
   .example(
-    "$0 -u http://localhost:3000 /about /contact",
+    "$0 -u http://localhost:4200 /about /contact",
     "Benchmark local routes"
   )
   .help().argv;
