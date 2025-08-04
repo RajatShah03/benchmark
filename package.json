@@ -1,0 +1,26 @@
+{
+  "name": "benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "benchmark": "./bin/index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "start": "node bin/index.js"
+  },
+  "keywords": [
+    "nextjs",
+    "benchmark",
+    "performance",
+    "ttfb",
+    "cli"
+  ],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0",
+  "dependencies": {
+    "yargs": "^18.0.0"
+  }
+}
