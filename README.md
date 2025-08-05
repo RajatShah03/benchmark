@@ -30,11 +30,12 @@ $ yarn start --urls / /about /contact --delay 2000
 
 ## Options
 
-| Option     | Alias | Description                        | Default                 |
-| ---------- | ----- | ---------------------------------- | ----------------------- |
-| `--urls`   | `-u`  | List of URLs or paths to benchmark | _(required)_            |
-| `--delay`  | `-d`  | Delay between requests (ms)        | `2000`                  |
-| `--output` | `-o`  | Output CSV file name               | `benchmark_results.csv` |
+| Option     | Alias | Description                         | Default                 |
+| ---------- | ----- | ----------------------------------- | ----------------------- |
+| `--urls`   | `-u`  | List of URLs or paths to benchmark  | _(required)_            |
+| `--delay`  | `-d`  | Delay between requests (ms)         | `2000`                  |
+| `--output` | `-o`  | Output CSV file name                | `benchmark_results.csv` |
+| `--mode`   | `-m`  | Mode of benchmarking browser/server | `server`                |
 
 ## Output
 
