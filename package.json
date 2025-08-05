@@ -21,6 +21,8 @@
   "license": "ISC",
   "packageManager": "pnpm@10.14.0",
   "dependencies": {
+    "csv-writer": "^1.6.0",
+    "puppeteer": "^24.15.0",
     "yargs": "^18.0.0"
   }
 }

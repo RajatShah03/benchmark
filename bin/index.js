@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
-import { runBenchmark } from "../lib/benchmark.js";
+import { runServerBenchmark } from "../lib/server-benchmark.js";
+import { runBrowserBenchmark } from "../lib/browser-benchmark.js";
 
 const argv = yargs(hideBin(process.argv))
   .usage("Usage: $0 --urls <url> [paths...] [options]")
@@ -23,10 +24,25 @@ const argv = yargs(hideBin(process.argv))
     default: "benchmark_results.csv",
     describe: "CSV output file name",
   })
+  .option("mode", {
+    alias: "m",
+    choices: ["server", "browser"],
+    default: "server",
+    describe:
+      'Benchmark mode: "server" for backend only, "browser" for full page load',
+  })
   .example(
-    "$0 -u http://localhost:4200 /about /contact",
-    "Benchmark local routes"
+    `$0 -u http://localhost:${process.env.PORT} /about /contact --mode browser`,
+    "Run browser-based full page load benchmark"
   )
-  .help().argv;
+  .help()
+  .alias("h", "help")
+  .parse();
 
-runBenchmark(argv.urls, argv.delay, argv.output);
+(async () => {
+  if (argv.mode === "browser") {
+    await runBrowserBenchmark(argv.urls, argv.delay, argv.output);
+  } else {
+    await runServerBenchmark(argv.urls, argv.delay, argv.output);
+  }
+})();
